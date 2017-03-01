@@ -4,27 +4,29 @@ public class LIS {
 	
 	public static void main(String a[]){
 		int maxlength=1;
-	int n[]={5,2,8,3,9,10,11,12,14};
-	int table[]=new int[n.length];
-	for(int i =0;i<n.length;i++){
+	int n[]={50,8,9,5,7,6,7,8,10,11};
+	int len=n.length;
+	int table[]=new int[len];
+	for(int i =0;i<len;i++){
 		
 		table[i]=1;
 	}
-	for(int i=0;i<n.length-1;i++){
-		for(int j=i+1;j<n.length;j++){
-			if(n[j]>n[i]){
-				System.out.println(n[j]);
+	for(int i=0;i<len-1;i++){
+		for(int j=i+1;j<len;j++){
+			if(n[j]>n[i] && n[j]>n[j-1]){
+				
 				table[i]+=1;
-				i++;
+				
 			}
 			
 		}
+		System.out.println(i+": "+table[i]);
 		if(max(table[i],maxlength)){
-			maxlength=table[i];
+						maxlength=table[i];
 		}
 	}
 	
-	System.out.println(maxlength);
+System.out.println("Max Length"+maxlength);
 	}
 	public static  boolean max(int i,int j){
 		
