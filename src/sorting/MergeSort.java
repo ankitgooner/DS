@@ -7,18 +7,14 @@ public class MergeSort {
    //static int arraytoUse[]={3,2,1,4};
 	public static void main(String k[]){
 		int n=arraytoUse.length;
-		int tempArray[]=new int[n];
-		//MergeSort m=new MergeSort();
-		//m.msort(tempArray,0,n-1);
 		
-		int arrayA[]={23,47,81,95};
-		int arrayB[]={7,14,39,55,62,74};
 		
-		int arrayC[]= new int[10];
 		
-		mergeSort(arrayC,0,9);
-		//merge(arrayA,4,arrayB,6,arrayC);
-		 System.out.println(Arrays.toString(arrayC));		
+		int arrayC[]= new int[n];
+		
+		mergeSort(arrayC,0,n-1);
+		
+		 System.out.println(Arrays.toString(arraytoUse));		
 		
 	}
 /*   public static void msort(int []tempArray,int low,int high){
@@ -49,7 +45,7 @@ public static void mergeSort(int a[],int low,int high){
 			return;
 		}
 		else{
-			int mid=(low+high)/2;
+			int mid=low+((high-low)/2);
 			
 			mergeSort(a,low,mid);
 			
@@ -59,13 +55,13 @@ public static void mergeSort(int a[],int low,int high){
 		}
 		
 	}
-/*public void merge(int []tempArray,int low,int mid,int high)	{
+public static void merge(int []tempArray,int low,int mid,int high)	{
 	
 	
 	int j=0;
 	
 	int i=low;
-	int k=mid;
+	int k=mid+1;
 	
 	   while(i<=mid && k<=high){
 		   
@@ -80,33 +76,22 @@ public static void mergeSort(int a[],int low,int high){
 		   
 		   
 	   }
-	   while(i<mid){
+	   while(i<=mid){
 		   tempArray[j++]=arraytoUse[i++];
+		  
 	   }
-	   while(k<high){
+	   while(k<=high){
 		   System.out.println("value"+k);
 		   tempArray[j++]=arraytoUse[k++];
+		   //j++;
+		  // k++;
+	   }
+	   int s=0;
+	   for(int p=low;p<=high;p++){
+		   arraytoUse[p]=tempArray[s++];
+		   
 	   }
 	
-}*/
-   public static void merge(int[] a1,int low,int mid,int high){
-		int i=low;int j=mid;int k=0;
-		 
-		while(i<=mid && j<=high){
-			
-			if(arraytoUse[i]<arraytoUse[j])
-				{
-				a1[k++]=arraytoUse[i];
-				i++;
-				}
-			else{
-				a1[k++]=arraytoUse[j];
-				j++;
-			}}
-			while(i<mid)
-				a1[k++]=arraytoUse[i++]; 
-			while(j<high)
-				a1[k++]=arraytoUse[j++];
-		
-	}
+}
+  
 }
