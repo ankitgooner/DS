@@ -41,47 +41,68 @@ public class Node {
 		
 	}
 	
-	void swap(Node head,int a,int b){
-		boolean founda=false,foundb=false,isAhead=false,isBhead=false;Node tempa=null,tempb=null;
+	Node swap(Node head,int a,int b){
+		boolean founda=false,foundb=false,isAhead=false,isBhead=false;Node preva=null,prevb=null,curra=null,currb=null,nexta=null,nextb=null;;
 		Node temp=head;
-		if(head.data==a){isAhead=true;tempa=head;};
-		if(head.data==b){isBhead=true;tempb=head;}
+		if(head.data==a){isAhead=true;curra=head;founda=true;}
+		if(head.data==b){isBhead=true;currb=head;foundb=true;}
 		//System.out.println(head.next.data);
 		while(temp.next!=null){
 			
 			if(temp.next.data==a){
 				founda=true;
-				 tempa=temp;
+				 preva=temp;
+				 curra=temp.next;
 			}
 			
 			if(temp.next.data==b){
 				foundb=true;
-				 tempb=temp;
+				 prevb=temp;
+				 currb=temp.next;
 			}
 			
 			temp=temp.next;
 		}
 		if(founda&&foundb){
 			//System.out.println(tempa.data+ " "+tempb.data);
-			Node tempAttachB,tempAttachA,tempAttachNextB,tempAttachNextA;
-			tempAttachB=tempb.next;
-			tempAttachA=tempa.next;
 			
-			tempAttachNextB=tempb.next.next;
-			tempAttachNextA=tempa.next.next;
+			
+			
+			nextb=currb.next;
+			nexta=curra.next;
 			
 			if(isAhead){
-				head=tempAttachB;
-				tempAttachNextB=tempAttachA;
-				tempb.next=tempa;
-				tempa.next=tempAttachNextB;
+				head=currb;
+				//System.out.println("here");
+				
 			}
-			tempa.next=tempAttachB;
-			tempAttachB.next=tempAttachNextA;
+			else if(isBhead){
+				head=curra;
+				
+			}
 			
-			tempb.next=tempAttachA;
-			tempAttachA.next=tempAttachNextB;
+			if(!isAhead)
+			preva.next=currb;
+			if(!isBhead)
+			prevb.next=curra;
+			if(curra.data==nextb.data){
+				curra.next=currb;
+			}
+			else{
+				curra.next=nextb;
+			}
+			if(currb.data==nexta.data){
+				currb.next=curra;
+			}
+			else{
+				currb.next=nexta;
+			}
+			
+			
+			
 		}
+		
+		return head;
 	}
 	
 	
@@ -98,7 +119,7 @@ public class Node {
 		    head.push(head,33);
 		    head.display(head);
 		   // System.out.println(head.next.data);
-		   head.swap(head, 5, 33);
+		 head=  head.swap(head, 9, 6);
 		    System.out.println("After Changes..........");
 		  head.display(head);
 		
