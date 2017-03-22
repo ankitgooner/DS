@@ -21,7 +21,7 @@ public class LCS {
 					
 					lcs[i][j]=0;
 				}
-				else if(a[i-1]==b[j]){
+				else if(a[i-1]==b[j-1]){
 					lcs[i][j]=lcs[i-1][j-1]+1;
 				}
 				else{
