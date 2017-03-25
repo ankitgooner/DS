@@ -4,24 +4,24 @@ public class ReverseLinkedList {
 
 	public static Node reverse(Node head){
 		Node prev=null,curr=head;
-		while(curr.next!=null){
+		while(curr!=null){
 		   
 			
-			Node temp=curr;
+			
 			
 		
 			Node next=curr.next;
 			curr.next=prev;
-			prev=temp;
+			prev=curr;
 			curr=next;
 			
 			//System.out.println(curr.data);
 	        
 		
 		}
-		if(curr.next==null)curr.next=prev;
 		
-		return curr;
+		
+		return prev;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
