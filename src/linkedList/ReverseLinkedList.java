@@ -25,21 +25,21 @@ public class ReverseLinkedList {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		Node head= new Node(10);
+LinkedList ll=new LinkedList();
+		Node head= null;
 		
-		    head.push(head, 1);
-		    head.push(head, 3);
-		    head.push(head, 5);
-		    head.push(head, 6);
-		    head.push(head, 9);
-		    head.push(head, 50);
-		    head.push(head,33);
-		    head.display(head);
+		   head=ll.push(head, 1);
+		    head=ll.push(head, 3);
+		    head=ll.push(head, 5);
+		    head=ll.push(head, 6);
+		    head=ll.push(head, 9);
+		    head=ll.push(head, 50);
+		    head=ll.push(head,33);
+		    ll.display(head);
 		    System.out.println("wait");
 		    head=reverse(head);
-		    //System.out.println(head.next);
-		  head.display(head);
+		    //System.out.println(ll.next);
+		  ll.display(head);
 		    
 		    
 	}
