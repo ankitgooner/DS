@@ -1,7 +1,22 @@
 package linkedList;
 
 public class ReverseLinkedList {
-
+    public static Node reverseK(Node curr,int k){
+    	
+    	
+    	Node prev=curr;
+    	if(k==0 ||curr==null){
+    		return prev;
+    	
+    }
+    
+        Node next=curr.next;
+        curr.next=prev;
+        curr=reverseK(next ,k-1);
+        
+        return curr;
+}      
+        		
 	public static Node reverse(Node head){
 		Node prev=null,curr=head;
 		while(curr!=null){
@@ -37,7 +52,8 @@ LinkedList ll=new LinkedList();
 		    head=ll.push(head,33);
 		    ll.display(head);
 		    System.out.println("wait");
-		    head=reverse(head);
+		   // head=reverse(head);
+		    head=reverseK(head,2);
 		    //System.out.println(ll.next);
 		  ll.display(head);
 		    
