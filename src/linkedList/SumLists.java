@@ -2,37 +2,26 @@ package linkedList;
 
 public class SumLists {
 public static Node sumList(Node head1,Node head2){
-	Node sumL=new Node(-1);Node temp=sumL;int carry=0;
-	 while(head1!=null && head2!=null){
+	Node sumL=new Node(-1);Node temp=sumL;Node newNode;int carry=0;
+	 while(head1!=null || head2!=null){
 		 
-		 int sum=head1.data+head2.data+carry;
+		 int sum=((head1!=null)?head1.data:0)+((head2!=null)?head2.data:0)+carry;
 		 carry=sum/10;int digit=sum%10;
 		 
-		 Node newNode=new Node(digit);
+		 newNode=new Node(digit);
 		 sumL.next=newNode;
 		 sumL=sumL.next;
-		 
-		 head1=head1.next;head2=head2.next;
+		 if(head1!=null)
+		 head1=head1.next;
+		 if(head2!=null)
+		 head2=head2.next;
 	 }
 	
-		
-	while(head1!=null){
-		int sum=head1.data+carry;
-		carry=sum/10;int digit=sum%10;
-		 Node newNode=new Node(digit);
+	 if(carry>0){
+		  newNode=new Node(carry);
 		 sumL.next=newNode;
 		 sumL=sumL.next;
-		 head1=head1.next;
-	}
-	while(head1!=null){
-		int sum=head1.data+carry;
-		carry=sum/10;int digit=sum%10;
-		 Node newNode=new Node(digit);
-		 sumL.next=newNode;
-		 sumL=sumL.next;
-		 head2=head2.next;
-	}
-	
+	 }
 	return temp.next;
 	
 }
