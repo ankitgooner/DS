@@ -2,17 +2,7 @@ package linkedList;
 
 
 
-class Node {
 
-	Node next;
-	int data;
-	
-	Node(int data){
-		next=null;
-		this.data=data;
-	}
-	
- }
 public class LinkedList{
 	
 	
